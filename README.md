@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |image|string||
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
@@ -16,7 +16,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false, unique: true|
-|mail|string|index: true, null: false, unique: true|
+|mail|string|null: false, unique: true|
 
 ### Association
 - has_many :groups, through: members
@@ -27,11 +27,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|index: true, null: false, unique: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :users, through: members
-- has_many :users
 - has_many :members
 
 ## membersテーブル
