@@ -1,0 +1,33 @@
+.wrapper
+  .notice チャットグループが作成されました。
+  .sidebar
+    .user
+      %h2.user__name sample
+      %ul.user__lists
+        %li.list
+          = link_to "#" do
+            %i.fa.fa-cog
+        %li.list
+          = link_to "#" do
+            %i.fa.fa-pencil-square-o
+    .groups
+      = render partial: "group"
+  .chat
+    .group
+      .group__name
+        sampleグループ
+        %ul.members
+          Member：
+          = render partial: "member"
+      .group__button
+        = link_to "Edit", "#"
+    .messages
+      = render partial: "messages__message"
+    .form
+      %form{action: "/", method: "post"}
+      %input.input{type: "text",name: "title", size: "40", placeholder: "type a message"}
+      .upload
+        %label
+          %i.fa.fa-picture-o
+          %input.button{type: "file"}
+      %input.send{type: "submit", value: "Send"}

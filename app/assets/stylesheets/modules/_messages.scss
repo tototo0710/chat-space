@@ -1,0 +1,31 @@
+.messages {
+  background-color: #eeeeee;
+  border-top: 1px solid #eeeeee;
+  height: 390px;
+  padding: 46px 40px;
+  overflow: scroll;
+  &__message {
+    margin: 40px 0 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    .member {
+      .name {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: $FontColorBlack01;
+        margin-right: 10px;
+      }
+      .time {
+        font-size: 1.2rem;
+        color: #999999;
+      }
+    }
+    .content {
+      font-size: 1.4rem;
+      color: $FontColorBlack01;
+      margin-top: 10px;
+    }
+  }
+}
