@@ -1,0 +1,13 @@
+.sidebar
+  .user
+    %h2.user__name sample
+    %ul.user__lists
+      %li.list
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
+      %li.list
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o
+  .groups
+    - current_user.groups.each do |group|
+      = render partial: "groups/group", locals: {group: group}
