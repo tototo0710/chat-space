@@ -1,16 +1,5 @@
 .wrapper
-  .sidebar
-    .user
-      %h2.user__name sample
-      %ul.user__lists
-        %li.list
-          = link_to "#" do
-            %i.fa.fa-cog
-        %li.list
-          = link_to "#" do
-            %i.fa.fa-pencil-square-o
-    .groups
-      = render partial: "group"
+  = render partial: "groups/sidebar"
   .chat
     .group
       .group__name
@@ -19,7 +8,7 @@
           Member：
           = render partial: "member"
       .group__button
-        = link_to "Edit", "#"
+        = link_to "Edit", "/groups/30/edit"
     .messages
       = render partial: "messages__message"
     .form
