@@ -3,11 +3,11 @@
     %h2.user__name sample
     %ul.user__lists
       %li.list
-        = link_to "/users/3/edit" do
+        = link_to edit_user_url(current_user) do
           %i.fa.fa-cog
       %li.list
         = link_to "/groups/new" do
           %i.fa.fa-pencil-square-o
   .groups
     - current_user.groups.each do |group|
-      = render partial: "groups/group", locals: { group: group}
+      = render partial: "groups/group", locals: {group: group}
