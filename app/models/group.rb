@@ -5,8 +5,6 @@ class Group < ApplicationRecord
   validate :add_error_name
 
   def add_error_name
-    if name.empty?
-      errors[:base] << "グループ名がありません。"
-    end
+    errors[:base] << "グループ名がありません。" if name.empty?
   end
 end

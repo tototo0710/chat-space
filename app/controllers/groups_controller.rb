@@ -11,10 +11,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = 'グループを作成しました。'
-      redirect_to group_messages_url(@group)
+      redirect_to group_messages_path(@group)
     else
       flash[:alert] = 'グループを作成出来ませんでした。'
-      render 'new'
+      render :new
     end
   end
 
@@ -26,10 +26,10 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:success] = 'グループを編集しました。'
-      redirect_to group_messages_url(@group)
+      redirect_to group_messages_path(@group)
     else
       flash[:alert] = 'グループを編集出来ませんでした。'
-      render 'edit'
+      render :edit
     end
   end
 
