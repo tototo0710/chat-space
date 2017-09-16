@@ -1,5 +1,9 @@
-%dl.messages__message
-  %dt.member
-    %span.name sample
-    %time.time 2017/08/30 11:41
-  %dd.content testだよ
+- @messages.each do |message|
+  %dl.messages__message
+    %dt.member
+      %span.name= message.user.name
+      %time.time= message.created_at
+    %dd.content
+      = message.body
+    %dd.image  
+      = image_tag message.image_url(:thumb) if message.image?

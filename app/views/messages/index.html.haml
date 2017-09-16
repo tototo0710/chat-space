@@ -3,19 +3,21 @@
   .chat
     .group
       .group__name
-        sampleグループ
+        = @group.name
         %ul.members
           Member：
           = render partial: "member"
       .group__button
-        = link_to "Edit", "/groups/30/edit"
+        = link_to "Edit", edit_group_path(@group)
     .messages
-      = render partial: "messages__message"
+      %dl.messages__message
+        = render partial: "messages__message"
     .form
-      %form{action: "/", method: "post"}
-      %input.input{type: "text",name: "title", size: "40", placeholder: "type a message"}
-      .upload
-        %label
-          %i.fa.fa-picture-o
-          %input.button{type: "file"}
-      %input.send{type: "submit", value: "Send"}
+      = form_for @message, url: {action: :create} do |f|
+        = f.text_field :body, {placeholder: "type a message", class: "input"}
+        .upload
+          = f.label :image do
+            %i.fa.fa-picture-o
+              = f.file_field :image, {class: "button"}
+              = f.hidden_field :image_cache
+        = f.submit "Send", {class: "send"}
