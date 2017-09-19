@@ -1,3 +1,4 @@
 .groups__group
-  .name= group[:name]
-  .message まだメッセージはありません。
+  = link_to group_messages_path(group[:id]) do
+    .name= group[:name]
+    .message= group.permit

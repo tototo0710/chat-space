@@ -1,6 +1,6 @@
 .sidebar
   .user
-    %h2.user__name sample
+    %h2.user__name= current_user.name
     %ul.user__lists
       %li.list
         = link_to edit_user_path(current_user) do
