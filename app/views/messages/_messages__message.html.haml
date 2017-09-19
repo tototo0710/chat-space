@@ -3,7 +3,5 @@
     %dt.member
       %span.name= message.user.name
       %time.time= message.created_at
-    %dd.content
-      = message.body
-    %dd.image  
-      = image_tag message.image_url(:thumb) if message.image?
+    %dd.content= message.body
+    %dd.image= image_tag message.image_url(:thumb) if message.image?
