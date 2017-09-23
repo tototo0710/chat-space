@@ -22,21 +22,21 @@ describe Message do
     it "メッセージも画像も無いと保存できない" do
       message = build(:message, body: nil, image: nil)
       message.valid?
-      expect(message.errors[:body_or_image]).to include("can't be blank")
+      expect(message.errors[:body_or_image]).to include("を入力してください")
     end
   end
   describe '#message-error02' do
     it "group_idが無いと保存できない" do
       message = build(:message, group_id: nil)
       message.valid?
-      expect(message.errors[:group]).to include("入力してください")
+      expect(message.errors[:group]).to include("を入力してください")
     end
   end
   describe '#message-error03' do
     it "user_idが無いと保存できない" do
       message = build(:message, user_id: nil)
       message.valid?
-      expect(message.errors[:user]).to include("入力してください")
+      expect(message.errors[:user]).to include("を入力してください")
     end
   end
 end
