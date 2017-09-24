@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @message = Message.new
     @group = current_user.groups.find(params[:group_id])
