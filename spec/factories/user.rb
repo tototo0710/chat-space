@@ -5,5 +5,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password pass
     password_confirmation pass
+    after(:create) do |user|
+      temp_group = create(:group)
+      create(:message, user: user, group: temp_group)
+      create(:member, user: user, group: temp_group)
+    end
   end
 end
