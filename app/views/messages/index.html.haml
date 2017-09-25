@@ -10,10 +10,9 @@
       .group__button
         = link_to "Edit", edit_group_path(@group)
     .messages
-      %dl.messages__message
-        = render partial: "messages__message"
+      = render partial: "messages__message"
     .form
-      = form_for @message, url: {action: :create} do |f|
+      = form_for @message, url: {action: :create}, remote: true, authenticity_token: true, id: "new_message" do |f|
         = f.text_field :body, {placeholder: "type a message", class: "input"}
         .upload
           = f.label :image do
