@@ -27,7 +27,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data);
       html = buildHTML(data);
       $('.messages').append(html)
       $('.input').val('')
