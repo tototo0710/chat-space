@@ -1,8 +1,8 @@
 $(function(){
   function buildHTML(message){
-    var insertImage = '';
+    var insertImage = ""
   if (message.image.url) {
-    insertImage = `<img src="${message.image.url}">`
+    insertImage = `<img src="${message.image.url}" width="300">`
   }
     var html = `<dl class='messages__message'>
                   <dt class='member'>
@@ -27,12 +27,16 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      console.log(data);
       html = buildHTML(data);
       $('.messages').append(html)
       $('.input').val('')
+      $('.button').val('')
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
         alert('error');
     })
+    return false;
   });
 });

@@ -17,9 +17,10 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path }
         format.json
       end
-    else
-      flash[:alert] = 'メッセージを入力してください。'
-      render :index
+    # else
+    #   flash[:alert] = 'メッセージを入力してください。'
+    #   render :index
+    # end
     end
   end
 

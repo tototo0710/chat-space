@@ -18,6 +18,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-i18n'
+gem 'remotipart'
 
 group :development, :test do
   gem 'byebug', platform: :mri
