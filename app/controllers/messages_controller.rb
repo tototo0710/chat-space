@@ -13,11 +13,10 @@ class MessagesController < ApplicationController
     @member = @group.users.all
     @messages = Message.where(group_id: params[:group_id])
     if @message.save
-      flash[:success] = 'メッセージを送信しました。'
-      redirect_to group_messages_path
-    else
-      flash[:alert] = 'メッセージを入力してください。'
-      render :index
+      respond_to do |format|
+        format.html { redirect_to group_messages_path }
+        format.json
+      end
     end
   end
 
