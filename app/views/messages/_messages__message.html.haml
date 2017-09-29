@@ -1,5 +1,5 @@
 - @messages.each do |message|
-  %dl.messages__message
+  %dl.messages__message{ "data-message-id": "#{message.id}"}
     %dt.member
       %span.name= message.user.name
       %time.time= message.created_at

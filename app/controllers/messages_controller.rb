@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
     @group = current_user.groups.find(params[:group_id])
     @member = @group.users.all
     @messages = Message.where(group_id: params[:group_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
